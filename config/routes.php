@@ -6,7 +6,11 @@ return array (
 
 //    'news/([0-9]+)' => 'news/view',
 
-//    'news' => 'news/index', // actionIndex in NewsController
+    'news' => 'news/index', // actionIndex in NewsController
+
+    'user/register' => 'user/register', // actionRegister in UserController
+
+
 
     '' => 'site/index',
 );
