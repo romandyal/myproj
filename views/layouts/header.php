@@ -2,7 +2,7 @@
 <!-- saved from url=(0034)http://monwea.org/blvck/index.html -->
 <html lang="en-US"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 
-    <title>Blvck - Personal vCard &amp; Resume Template</title>
+    <title>myproj</title>
     <meta name="description" content="Blvck - Personal vCard &amp; Resume Template">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     <link rel="shortcut icon" type="image/x-icon" href="http://monwea.org/blvck/assets/images/favicon.png">
@@ -35,12 +35,22 @@
                     <button class="btn btn-default pull-left">Главная</button>
                 </a>
 
-                <a href="/user/login">
-                    <button class="btn btn-default pull-left">Вход</button>
-                </a>
+                <?php if (User::isGuest()): ?>
+                    <a href="/user/login">
+                        <button class="btn btn-default pull-left">Вход</button>
+                    </a>
+                <?php else: ?>
 
+                        <a href="/user/logout/">
+                            <button class="btn btn-default pull-left">Выход</button>
+                        </a>
+
+                <?php endif; ?>
+
+                <?php if(!isset($_SESSION['name'])):?>
                 <a href="/user/register">
                     <button class="btn btn-default pull-left">Регистрация</button>
                 </a>
+                <?php endif; ?>
             </div>
         </div>

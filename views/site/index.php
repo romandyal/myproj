@@ -6,12 +6,12 @@
                 <section id="contact" class="contact">
 
                     <div class="section-header">
-                        <h2>Привет</h2>
+                        <h2>Привет <?php if(isset($_SESSION['user'])){echo $_SESSION['name'];}
+                            else{echo 'Гость';} ?></h2>
                     </div>
 
                 </section>
             </div>
         </div>
 
-    </div>
-</div>
+<?php include ROOT . '/views/layouts/footer.php'; ?>

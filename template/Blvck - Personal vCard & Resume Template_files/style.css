@@ -1196,9 +1196,27 @@ li {
 .left-container a button{
     margin:7px;
 }
+.right-container {
+    width: 200px;
+    height: 550px;
+    padding: 20px;
+    background-color: #fff;
+    margin: 10px 20px;
+}
+.right-container a button{
+    margin:7px;
+}
 
 .center-container {
     width: 400px;
+    height: 550px;
+    padding: 20px;
+    background-color: #fff;
+    margin: 10px auto;
+}
+
+.center-container-edit {
+    width: 700px;
     height: 550px;
     padding: 20px;
     background-color: #fff;

@@ -49,9 +49,6 @@
                     </div>
                 </div>
 
-
-
-
             </div><!-- Row end -->
 
             <input type="submit" name="submit" id="submit" value="Отправить форму" class="btn btn-default pull-left"><!-- Send Button -->
@@ -64,12 +61,6 @@
     </div>
 
             </div>
-
-        </div>
-</div>
-
-
-
 
 
 <?php include ROOT . '/views/layouts/footer.php'; ?>

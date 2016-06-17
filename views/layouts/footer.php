@@ -1,4 +1,34 @@
 
+
+<?php if(isset($userId)):?>
+<div class="col-md-3">
+    <div class="right-container">
+        <a href="/cabinet/edit">
+            <button class="btn btn-default pull-left">Редактировать</button>
+        </a>
+        <?php if(isset($_SESSION['role']) && ($_SESSION['role'] == 'admin')) {
+
+            echo '<a href="/admin/user">';
+            echo '<button class="btn btn-default pull-left">Пользователи</button>';
+            echo '</a>';
+        }elseif($_SESSION['role'] == 'manager'){
+            echo '<a href="/manager/user">';
+            echo '<button class="btn btn-default pull-left">Пользователи</button>';
+            echo '</a>';
+        }?>
+
+
+
+
+    </div>
+</div>
+<?php endif;?>
+
+</div>
+</div>
+
+
+
 <!-- SCRIPTS -->
 <script type="text/javascript" src="/template/Blvck - Personal vCard &amp; Resume Template_files/jquery-1.12.3.min.js"></script>
 <script type="text/javascript" src="/template/Blvck - Personal vCard &amp; Resume Template_files/jquery.onepage-scroll.min.js"></script>
