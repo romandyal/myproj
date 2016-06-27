@@ -5,6 +5,7 @@ require_once 'GetTableTest.php';
 
 
 
+
 class UserTest extends PHPUnit_Framework_TestCase {
 
     private $b;
@@ -35,12 +36,12 @@ class UserTest extends PHPUnit_Framework_TestCase {
     }
 
 
-    public function testCreateTestTables()
-    {
-        $result = GetTableTest::getTable();
-
-        $this->assertEquals(1,$result);
-    }
+//    public function testCreateTestTables()
+//    {
+//        $result = GetTableTest::getTable();
+//
+//        $this->assertEquals(1,$result);
+//    }
 
     public function testUser_register()
     {
