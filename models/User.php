@@ -4,6 +4,7 @@ class User
 {
     public static function checkName($name)
     {
+        $name = (string)$name;
         if (strlen($name) >= 2) {
             return true;
         }
@@ -17,8 +18,11 @@ class User
      */
     public static function checkPhone($phone)
     {
-        if (strlen($phone) >= 10) {
-            return true;
+        $phone = (int) $phone;
+        if(is_int($phone)) {
+            if (strlen($phone) >= 10) {
+                return true;
+            }
         }
         return false;
     }
@@ -49,10 +53,10 @@ class User
         return false;
     }
 
-    public static function checkEmailExists($email)
+    public static function checkEmailExists($email,$stat=true)
     {
         // Соединение с БД
-        $db = Db::getConnection();
+        $db = Db::getConnection($stat);
 
         // Текст запроса к БД
         $sql = 'SELECT COUNT(*) FROM user WHERE email = :email';
@@ -67,10 +71,10 @@ class User
         return false;
     }
 
-    public static function checkPhoneExists($phone)
+    public static function checkPhoneExists($phone,$stat=true)
     {
         // Соединение с БД
-        $db = Db::getConnection();
+        $db = Db::getConnection($stat);
 
         // Текст запроса к БД
         $sql = 'SELECT COUNT(*) FROM user WHERE phone = :phone';
@@ -85,10 +89,10 @@ class User
         return false;
     }
 
-    public static function checkNameExists($name)
+    public static function checkNameExists($name,$stat=true)
     {
         // Соединение с БД
-        $db = Db::getConnection();
+        $db = Db::getConnection($stat);
 
         // Текст запроса к БД
         $sql = 'SELECT COUNT(*) FROM user WHERE name = :name';
@@ -111,10 +115,10 @@ class User
      * @param string $phone <p>Телефон</p>
      * @return boolean <p>Результат выполнения метода</p>
      */
-    public static function register($name, $email, $password, $phone)
+    public static function register($name, $email, $password, $phone, $stat=true)
     {
         // Соединение с БД
-        $db = Db::getConnection();
+        $db = Db::getConnection($stat);
 
         // Текст запроса к БД
         $sql = 'INSERT INTO user (name, email, password, phone) '
@@ -135,10 +139,10 @@ class User
      * @param string $password <p>Пароль</p>
      * @return mixed : integer user id or false
      */
-    public static function checkUserData($email, $password)
+    public static function checkUserData($email, $password,$stat=true)
     {
         // Соединение с БД
-        $db = Db::getConnection();
+        $db = Db::getConnection($stat);
 
         // Текст запроса к БД
         $sql = 'SELECT * FROM user WHERE email = :email AND password = :password';
@@ -193,10 +197,10 @@ class User
      * @param integer $id <p>id пользователя</p>
      * @return array <p>Массив с информацией о пользователе</p>
      */
-    public static function getUserById($id)
+    public static function getUserById($id,$stat=true)
     {
         // Соединение с БД
-        $db = Db::getConnection();
+        $db = Db::getConnection($stat);
 
         // Текст запроса к БД
         $sql = 'SELECT * FROM user WHERE id = :id';
@@ -231,10 +235,10 @@ class User
      * @param string $password <p>Пароль</p>
      * @return boolean <p>Результат выполнения метода</p>
      */
-    public static function edit($id, $name, $password, $phone, $email)
+    public static function edit($id, $name, $password, $phone, $email, $stat=true)
     {
         // Соединение с БД
-        $db = Db::getConnection();
+        $db = Db::getConnection($stat);
 
         // Текст запроса к БД
         $sql = "UPDATE user 
@@ -318,10 +322,10 @@ class User
      * @param integer $id <p>id пользователя</p>
      * @return boolean <p>Результат выполнения метода</p>
      */
-    public static function deleteUserById($id)
+    public static function deleteUserById($id,$stat=true)
     {
         // Соединение с БД
-        $db = Db::getConnection();
+        $db = Db::getConnection($stat);
 
         // Текст запроса к БД
         $sql = 'DELETE FROM user WHERE id = :id';

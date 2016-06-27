@@ -11,7 +11,11 @@
             echo '<a href="/admin/user">';
             echo '<button class="btn btn-default pull-left">Пользователи</button>';
             echo '</a>';
-        }elseif($_SESSION['role'] == 'manager'){
+
+            echo '<a href="/admin/user/test">';
+            echo '<button class="btn btn-default pull-left">Тест ORM</button>';
+            echo '</a>';
+        }elseif(isset($_SESSION['role']) && $_SESSION['role'] == 'manager'){
             echo '<a href="/manager/user">';
             echo '<button class="btn btn-default pull-left">Пользователи</button>';
             echo '</a>';

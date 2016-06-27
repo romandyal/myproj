@@ -87,5 +87,26 @@ class AdminUserController extends AdminBase{
         require_once(ROOT . '/views/admin/update.php');
         return true;
     }
+
+    public function actionTest()
+    {
+        $userId = User::checkLogged();
+        // Проверка доступа
+        self::checkAdmin();
+
+        if (isset($_POST['submit'])){
+            
+            $userData = $_POST['userData'];
+
+            $res = Db::find('user',$userData);
+            
+
+        }
+        
+        
+
+        require_once(ROOT . '/views/admin/testOrm.php');
+        return true;
+    }
     
 }

@@ -1,7 +1,7 @@
 <?php
 
 return array(
-    'host' => 'localhost',
+    'host' => 'localhost:4040',
     'dbname' => 'myproj',
     'user' => 'root',
     'password' => 'zs6f45h',
